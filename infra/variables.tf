@@ -50,6 +50,7 @@ variable "vpc_tags" {
   description = "Tags for the VPC"
   type        = map(string)
   default     = {
+    Name         = ""
     Project_name = ""
     Environment  = ""
   }
