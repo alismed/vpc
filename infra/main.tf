@@ -2,11 +2,7 @@ resource "aws_vpc" "ABC" {
   cidr_block           = var.vpc_cidr
   enable_dns_hostnames = var.enable_dns_hostnames
 
-  tags = {
-    Name        = var.project_name
-    Description = "${var.project_name} VPC, main VPC for the ${var.project_name} project"
-    Environment = var.environment
-  }
+  tags = var.vpc_tags
 }
 
 resource "aws_subnet" "ABC_SUBNET" {
@@ -16,19 +12,13 @@ resource "aws_subnet" "ABC_SUBNET" {
   availability_zone       = var.availabilityZones[count.index]
   map_public_ip_on_launch = var.map_public_ip
 
-  tags = {
-    Name        = "${var.project_name}_SUBNET_${count.index}"
-    Environment = var.environment
-  }
+  tags = var.vpc_tags
 }
 
 resource "aws_internet_gateway" "ABC_IGW" {
   vpc_id = aws_vpc.ABC.id
 
-  tags = {
-    Name        = "${var.project_name}_IGW"
-    Environment = var.environment
-  }
+  tags = var.vpc_tags
 }
 
 resource "aws_route_table" "ABC_ROUTE_TABLE" {
