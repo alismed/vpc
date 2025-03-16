@@ -46,3 +46,8 @@ variable "map_public_ip" {
   default     = false
 }
 
+variable "vpc_tags" {
+  description = "Tags for the VPC"
+  type        = map(string)
+  default     = {}
+}
