@@ -23,16 +23,6 @@ output "internet_gateway_id" {
   value       = aws_internet_gateway.ABC_IGW.id
 }
 
-output "vpc_name" {
-  description = "The name of the VPC"
-  value       = aws_vpc.ABC.tags["Name"]
-}
-
-output "subnet_names" {
-  description = "The names of the subnets"
-  value       = [for subnet in aws_subnet.ABC_SUBNET : subnet.tags["Name"]]
-}
-
 output "subnet_cidrs" {
   description = "The CIDR blocks of the subnets"
   value       = aws_subnet.ABC_SUBNET[*].cidr_block
