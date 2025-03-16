@@ -12,15 +12,12 @@ This project demonstrates how to create a VPC and Subnets using Terraform for in
 - S3 Bucket for Terraform state (can be created via terraform)
 
 ### AWS Configuration
-1. Configure AWS CLI credentials:
-   ```shell
-   aws configure
-   ```
+1. Configure AWS CLI credentials `aws configure`
 2. For testing add profiles in:
    - `.aws/credentials`
    - `.aws/config`
 
-### Infrastructure Management
+## Infrastructure Management
 ```shell
 # Initialize Terraform
 terraform -chdir=infra init
