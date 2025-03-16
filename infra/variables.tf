@@ -49,5 +49,8 @@ variable "map_public_ip" {
 variable "vpc_tags" {
   description = "Tags for the VPC"
   type        = map(string)
-  default     = {}
+  default     = {
+    Project_name = ""
+    Environment  = ""
+  }
 }
